@@ -1,11 +1,11 @@
-using CretaceousApi.Models;
+using ShelterAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.AddDbContext<CretaceousApiContext>(
+builder.Services.AddDbContext<ShelterAPIContext>(
                   dbContextOptions => dbContextOptions
                     .UseMySql(
                       builder.Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:DefaultConnection"]
@@ -20,10 +20,10 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+  app.UseSwagger();
+  app.UseSwaggerUI();
 }
-else 
+else
 {
   app.UseHttpsRedirection();
 }

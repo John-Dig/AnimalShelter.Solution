@@ -1,4 +1,4 @@
-namespace CretaceousApi.Models
+namespace ShelterAPI.Models
 {
   public class Animal
   {
