@@ -14,11 +14,11 @@ namespace ShelterAPI.Models
     {
       builder.Entity<Animal>()
         .HasData(
-          new Animal { AnimalId = 1, Name = "Scruff", Species = "Cat", Age = 7 },
-          new Animal { AnimalId = 2, Name = "Henri", Species = "Cat", Age = 6 },
-          new Animal { AnimalId = 3, Name = "Brownie", Species = "Dog", Age = 5 },
-          new Animal { AnimalId = 4, Name = "Petunia", Species = "Dog", Age = 9 },
-          new Animal { AnimalId = 5, Name = "Dart", Species = "Cat", Age = 1 }
+          new Animal { AnimalId = 1, Name = "Scruff", Species = "cat", Age = 7, Gender = "male" },
+          new Animal { AnimalId = 2, Name = "Henri", Species = "cat", Age = 6, Gender = "female" },
+          new Animal { AnimalId = 3, Name = "Brownie", Species = "dog", Age = 5, Gender = "male" },
+          new Animal { AnimalId = 4, Name = "Petunia", Species = "dog", Age = 9, Gender = "female" },
+          new Animal { AnimalId = 5, Name = "Dart", Species = "cat", Age = 1, Gender = "unknown" }
         );
     }
   }
