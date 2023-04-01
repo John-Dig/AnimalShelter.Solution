@@ -15,11 +15,28 @@ namespace ShelterAPI.Controllers
       _db = db;
     }
 
-    // GET api/animals
+  // GET api/animals
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Animal>>> Get()
+    public async Task<List<Animal>> Get(string species, string name, int minimumAge)
     {
-      return await _db.Animals.ToListAsync();
+      IQueryable<Animal> query = _db.Animals.AsQueryable();
+
+      if (species != null)
+      {
+        query = query.Where(entry => entry.Species == species);
+      }
+
+      if (name != null)
+      {
+        query = query.Where(entry => entry.Name == name);
+      }
+
+      if (minimumAge > 0)
+      {
+        query = query.Where(entry => entry.Age >= minimumAge);
+      }
+
+      return await query.ToListAsync();
     }
 
     //GET: api/animals/5
@@ -95,6 +112,5 @@ namespace ShelterAPI.Controllers
 
       return NoContent();
     }
-
-  }
+   }
 }
