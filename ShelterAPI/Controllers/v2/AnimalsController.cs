@@ -2,10 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ShelterAPI.Models;
 
-namespace ShelterAPI.Controllers
+namespace ShelterAPI.Controllers.v2
 {
-  [Route("api/[controller]")]
   [ApiController]
+  [Route("api/v{version:apiVersion}/animals")]
+  [ApiVersion("2.0")]
   public class AnimalsController : ControllerBase
   {
     private readonly ShelterAPIContext _db;
@@ -17,6 +18,7 @@ namespace ShelterAPI.Controllers
 
   // GET api/animals
     [HttpGet]
+    [MapToApiVersion("2.0")]
     public async Task<List<Animal>> Get(string species, string name, int minimumAge)
     {
       IQueryable<Animal> query = _db.Animals.AsQueryable();
@@ -41,6 +43,7 @@ namespace ShelterAPI.Controllers
 
     //GET: api/animals/5
     [HttpGet("{id}")]
+    [MapToApiVersion("2.0")]
     public async Task<ActionResult<Animal>> GetAnimal(int id)
     {
       Animal animal = await _db.Animals.FindAsync(id);
@@ -55,6 +58,7 @@ namespace ShelterAPI.Controllers
 
     //Post api/animals
     [HttpPost]
+    [MapToApiVersion("2.0")]
     public async Task<ActionResult<Animal>> Post(Animal animal)
     {
       _db.Animals.Add(animal);
@@ -64,6 +68,7 @@ namespace ShelterAPI.Controllers
 
     // PUT: api/Animals/5
     [HttpPut("{id}")]
+    [MapToApiVersion("2.0")]
     public async Task<IActionResult> Put(int id, Animal animal)
     {
       if (id != animal.AnimalId)
@@ -99,6 +104,7 @@ namespace ShelterAPI.Controllers
     
     // DELETE: api/Animals/5
     [HttpDelete("{id}")]
+    [MapToApiVersion("2.0")]
     public async Task<IActionResult> DeleteAnimal(int id)
     {
       Animal animal = await _db.Animals.FindAsync(id);
