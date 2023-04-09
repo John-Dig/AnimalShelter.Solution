@@ -14,7 +14,7 @@
 This program is a basic API for accessing data on a database.  More specifically it accesses pets at a shelter.  You can get their name, age, gender and species (cat or dog).
 
 ## Versioning
-Versioning has been implemented in a very basic way.  V1 animals search can take 2 search parameters: `name` and `species`.  V2 adds a search parameter for `minimumAge`, so a search can be made specific to querying for older pets. 
+Versioning has been implemented in a very basic way.  V1 animals search can take 2 search parameters: `name` and `species`.  V2 adds a search parameter for `minimumAge`, so a search can be made specific to querying for older pets. V1 and V2 can easily be selected from the dropdown menu at the top of Swagger, or from entering it in the URL as demonstrated below under _Endpoints_; as a $`curl` command or from Postman. 
  
 
 ## Running This Project
@@ -34,7 +34,7 @@ Versioning has been implemented in a very basic way.  V1 animals search can take
 
 
 ## Making API Calls
-* Make API calls from the command line with `curl`; from your browser with swagger, which should load automatically when you run the program; or from Postman. 
+* Make API calls from the command line with $`curl`; from your browser with swagger, which should load automatically when you run the program; or from Postman. 
 
 ### Endpoints
 - (v1) GET http://localhost/api/v1/animals [includes optional search query parameters `name` and `species`]
